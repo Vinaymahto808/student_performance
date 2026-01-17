@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyM3x4JNxxfyrIPAFCOT/f+M",
+      "authorship_tag": "ABX9TyN54q4kHFhZi3Naz5LKKa6b",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -388,25 +388,27 @@
         "# Retrain the model on the entire dataset\n",
         "final_model.fit(X, y.values.ravel())\n",
         "\n",
-        "# Export the trained model to a file\n",
-        "joblib.dump(final_model, 'best_model.pickle')\n",
+        "# Export the trained model to a file using protocol=4 for broader compatibility\n",
+        "# Protocol 4 is compatible with Python 3.4 and higher\n",
+        "joblib.dump(final_model, 'best_model.pickle', protocol=4)\n",
         "\n",
-        "print(f\"\\\\nBest model '{best_model_name}' was trained and exported as 'best_model.pickle'\")"
+        "print(f\"\\nBest model '{best_model_name}' was trained and exported as 'best_model.pickle' with pickle protocol 4\")"
       ],
       "metadata": {
         "id": "pitcY1-ABbeQ",
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
-        "outputId": "3c1bec4d-4a1c-4cf1-f06b-9815ea58562d"
+        "outputId": "0c9d61de-3811-4a5b-a4a9-dee5749a7586"
       },
-      "execution_count": 9,
+      "execution_count": 20,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "\\nBest model 'Random Forest' was trained and exported as 'best_model.pickle'\n"
+            "\n",
+            "Best model 'Random Forest' was trained and exported as 'best_model.pickle' with pickle protocol 4\n"
           ]
         }
       ]
