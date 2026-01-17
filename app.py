@@ -8,9 +8,9 @@ import pickle
 # Make sure 'best_model.pickle' is in the same directory as this app.py file
 try:
     model = joblib.load('best_model.pickle')
-except (EOFError, pickle.UnpicklingError, AttributeError) as e:
+except (EOFError, pickle.UnpicklingError, AttributeError, KeyError, ValueError) as e:
     st.error(f"Error loading model: {str(e)}")
-    st.error("Please regenerate the best_model.pickle file by running the notebook cells that train and save the model.")
+    st.error("The best_model.pickle file is corrupted. Please regenerate it by running the notebook cells that train and save the model.")
     st.stop()
 
 st.title('Student Exam Score Predictor')
