@@ -4,7 +4,7 @@ venv/
 env/
 
 # Pickle files (regenerated from notebook)
-best_model.pickle
+# best_model.pickle
 
 # Jupyter Notebook
 .ipynb_checkpoints/
@@ -41,6 +41,3 @@ wheels/
 # OS
 .DS_Store
 Thumbs.db
-
-# Data files (add dataset file)
-*.csv
