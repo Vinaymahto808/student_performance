@@ -1,10 +1,17 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
+import pickle
 
 # Load the trained model
 # Make sure 'best_model.pickle' is in the same directory as this app.py file
-model = joblib.load('best_model.pickle')
+try:
+    model = joblib.load('best_model.pickle')
+except (EOFError, pickle.UnpicklingError, AttributeError) as e:
+    st.error(f"Error loading model: {str(e)}")
+    st.error("Please regenerate the best_model.pickle file by running the notebook cells that train and save the model.")
+    st.stop()
 
 st.title('Student Exam Score Predictor')
 st.write('Enter student details to predict their exam score.')
