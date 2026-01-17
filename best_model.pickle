@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyOWdqGPa62yzq81Hit8DM7L",
+      "authorship_tag": "ABX9TyPRjwuFBaVEU+nqWesbAMqk",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -419,6 +419,46 @@
       "source": [
         "Below is the code for a Streamlit application (`app.py`) that utilizes the trained model to predict exam scores. You will need to save this code as a `.py` file (e.g., `app.py`) and place it in the same directory as your `best_model.pickle` file."
       ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "55cb4012"
+      },
+      "source": [
+        "import pkg_resources\n",
+        "\n",
+        "# List of libraries used in the project\n",
+        "project_libraries = [\n",
+        "    'pandas',\n",
+        "    'numpy',\n",
+        "    'matplotlib',\n",
+        "    'seaborn',\n",
+        "    'scikit-learn',\n",
+        "    'joblib',\n",
+        "    'streamlit'\n",
+        "]\n",
+        "\n",
+        "# Get the installed version of each library\n",
+        "requirements = []\n",
+        "for lib in project_libraries:\n",
+        "    try:\n",
+        "        version = pkg_resources.get_distribution(lib).version\n",
+        "        requirements.append(f\"{lib}=={version}\")\n",
+        "    except pkg_resources.DistributionNotFound:\n",
+        "        requirements.append(f\"# {lib} (not found - please install manually if needed)\")\n",
+        "\n",
+        "# Write to requirements.txt\n",
+        "with open('requirements.txt', 'w') as f:\n",
+        "    for req in requirements:\n",
+        "        f.write(req + '\\n')\n",
+        "\n",
+        "print('requirements.txt created successfully:')\n",
+        "with open('requirements.txt', 'r') as f:\n",
+        "    print(f.read())"
+      ],
+      "execution_count": null,
+      "outputs": []
     },
     {
       "cell_type": "code",
