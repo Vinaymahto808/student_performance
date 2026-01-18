@@ -67,13 +67,13 @@ with tab1:
     col1, col2 = st.columns(2)
     
     with col1:
-        study_hours = st.slider('📚 Study Hours per Day', 0.0, 10.0, 3.5, 0.1)
+        study_hours = st.slider('📚 Study Hours', 0.0, 10.0, 3.5, 0.1)
         attendance = st.slider('📍 Attendance Percentage', 0.0, 100.0, 85.0, 0.1)
-        mental_health = st.slider('🧠 Mental Health Rating (1-10)', 1, 10, 5)
+        mental_health = st.slider('games Rating (1-10)', 1, 10, 5)
     
     with col2:
-        sleep_hours = st.slider('😴 Sleep Hours per Night', 3.0, 10.0, 7.0, 0.1)
-        part_time_job_str = st.radio('💼 Part-time Job?', ('No', 'Yes'))
+        sleep_hours = st.slider('exam', 3.0, 10.0, 7.0, 0.1)
+        part_time_job_str = st.radio('partipation heckthon?', ('No', 'Yes'))
     
     # Preprocessing input
     part_time_job_encoded = 1 if part_time_job_str == 'Yes' else 0
